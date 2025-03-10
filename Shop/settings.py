@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-#2@^(0)jz4gm8q7m6ex-7e0#*5%*hh%b%9ph=d(f^*$^o_pt@_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('*',)
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,12 +80,13 @@ WSGI_APPLICATION = 'Shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'order',
-        'HOST': 'localhost',
-        'USER': 'kali',
+        'NAME': 'Order',
+        'HOST': 'mysql-container',
+        'USER': 'root',
         'PASSWORD': 'kali'
     }
 }
+
 
 
 # Password validation
