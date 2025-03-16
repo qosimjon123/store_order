@@ -14,11 +14,17 @@ class Order(models.Model):
         choices=(('pending', 'Pending'), ('paid', 'Paid'), ('shipped', 'Shipped'), ('delivered', 'Delivered'), ('canceled', 'Canceled')),
         default='pending'
     )
+    basket_id = models.UUIDField(null=False, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     shipping_address = models.TextField(blank=True, null=True)
     payment_method = models.CharField(max_length=50, blank=True, null=True)
     is_locked = models.BooleanField(default=False)  # Флаг неизменности
+    msg_for_couriers = models.TextField(blank=True, null=True)
+    msg_for_order = models.TextField(blank=True, null=True)
+
+    cancel_reason = models.TextField(blank=True, null=True)
+
 
     def __str__(self):
         return f"Order {self.id} for {self.customer} - {self.status}"

@@ -1,0 +1,1 @@
+basket_url = ('http://basket-container:8004')
