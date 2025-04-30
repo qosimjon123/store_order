@@ -10,6 +10,8 @@ djangorestframework = "*"
 django-debug-toolbar = "*"
 drf-nested-routers = "*"
 requests = "*"
+pika = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

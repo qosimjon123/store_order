@@ -39,11 +39,12 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
-    product_id = models.IntegerField(default=None)
+    product_id = models.IntegerField(null=False)
     quantity = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     price = models.DecimalField(max_digits=10, decimal_places=2)  # Цена на момент покупки
     name_at_purchase = models.CharField(max_length=255, blank=True, null=True)  # Название на момент покупки
     created_at = models.DateTimeField(auto_now_add=True)  # Фиксация времени добавления
+    sku = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         unique_together = ('order', 'product_id')

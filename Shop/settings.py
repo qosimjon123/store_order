@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-#2@^(0)jz4gm8q7m6ex-7e0#*5%*hh%b%9ph=d(f^*$^o_pt@_
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+CORS_ALLOW_HEADERS = ['Authorization', 'X-CSRFToken', 'session', 'Content-Type']
 INTERNAL_IPS = ['127.0.0.1']
 
 import socket
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+'corsheaders',
     'debug_toolbar',
     'rest_framework',
     'Order',
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
