@@ -18,6 +18,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     shipping_address = models.TextField(blank=True, null=True)
+    store_id = models.IntegerField(null=True)
     payment_method = models.CharField(max_length=50, blank=True, null=True)
     is_locked = models.BooleanField(default=False)  # Флаг неизменности
     msg_for_couriers = models.TextField(blank=True, null=True)

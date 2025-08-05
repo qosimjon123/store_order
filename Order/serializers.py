@@ -12,7 +12,7 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ['pk', 'customer', 'basket_id' ,'total_price',
                   'shipping_address', 'payment_method',
                   'is_locked', 'msg_for_couriers', 'msg_for_order',
-                  'cancel_reason']
+                  'cancel_reason', 'store_id']
 
 
 

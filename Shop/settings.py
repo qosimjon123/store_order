@@ -37,6 +37,18 @@ hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://imprecisely-rightful-earwig.cloudpub.ru',
+    'https://violently-fluttering-bengal.cloudpub.ru',
+    'https://intricately-known-stonefish.cloudpub.ru',
+    'https://murkily-conquering-feline.cloudpub.ru',
+    'https://elegantly-sunny-vizcacha.cloudpub.ru',
+    'https://spatially-amenable-sheepdog.cloudpub.ru',
+    # Добавьте другие домены CloudPub по мере необходимости
+]
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'corsheaders',
+    'corsheaders',
     'debug_toolbar',
     'rest_framework',
     'Order',
